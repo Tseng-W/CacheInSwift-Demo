@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		476C3516268B005F00259C13 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476C3515268B005F00259C13 /* Article.swift */; };
+		47E70520268C687D00493EBD /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E7051F268C687D00493EBD /* Double+Extension.swift */; };
+		47E70522268C9F6700493EBD /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E70521268C9F6700493EBD /* Int+Extension.swift */; };
 		47FC29382689FDB80017C68D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FC29372689FDB80017C68D /* AppDelegate.swift */; };
 		47FC293A2689FDB80017C68D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FC29392689FDB80017C68D /* SceneDelegate.swift */; };
 		47FC293C2689FDB80017C68D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FC293B2689FDB80017C68D /* ViewController.swift */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		2BA064E6048C8EAC34EA3EE4 /* Pods-CacheDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CacheDemo.debug.xcconfig"; path = "Target Support Files/Pods-CacheDemo/Pods-CacheDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		476C3515268B005F00259C13 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		47E7051F268C687D00493EBD /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		47E70521268C9F6700493EBD /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		47FC29342689FDB80017C68D /* CacheDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CacheDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47FC29372689FDB80017C68D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47FC29392689FDB80017C68D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,8 +56,16 @@
 				2BA064E6048C8EAC34EA3EE4 /* Pods-CacheDemo.debug.xcconfig */,
 				B2B22163962F6809F05366C0 /* Pods-CacheDemo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		47E7051E268C687100493EBD /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				47E7051F268C687D00493EBD /* Double+Extension.swift */,
+				47E70521268C9F6700493EBD /* Int+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		47FC292B2689FDB80017C68D = {
@@ -77,6 +89,7 @@
 		47FC29362689FDB80017C68D /* CacheDemo */ = {
 			isa = PBXGroup;
 			children = (
+				47E7051E268C687100493EBD /* Extension */,
 				47FC294B2689FDCA0017C68D /* Model */,
 				47FC29372689FDB80017C68D /* AppDelegate.swift */,
 				47FC29392689FDB80017C68D /* SceneDelegate.swift */,
@@ -222,6 +235,8 @@
 			files = (
 				47FC293C2689FDB80017C68D /* ViewController.swift in Sources */,
 				47FC29382689FDB80017C68D /* AppDelegate.swift in Sources */,
+				47E70520268C687D00493EBD /* Double+Extension.swift in Sources */,
+				47E70522268C9F6700493EBD /* Int+Extension.swift in Sources */,
 				47FC294D2689FDD80017C68D /* CacheWrapper.swift in Sources */,
 				47FC293A2689FDB80017C68D /* SceneDelegate.swift in Sources */,
 				476C3516268B005F00259C13 /* Article.swift in Sources */,
