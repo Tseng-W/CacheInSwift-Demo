@@ -21,7 +21,12 @@ class ViewController: UIViewController {
   @IBOutlet var segmentedControl: UISegmentedControl!
   @IBOutlet var resultLabel: UILabel!
   @IBOutlet var sizeLabel: UILabel!
-  @IBOutlet var sizeSegementedControl: UISegmentedControl!
+  @IBOutlet var sizeSegementedControl: UISegmentedControl! {
+    didSet {
+      switchCacheSize(sender: sizeSegementedControl)
+    }
+  }
+  @IBOutlet var cacheTypeControl: UISegmentedControl!
 
   let bigImageUrl = URL(string: "https://i.pinimg.com/originals/df/80/f3/df80f367ffb8669baeabcd5564f1b638.jpg")!
   let smallImageUrl = URL(string: "https://images-na.ssl-images-amazon.com/images/I/51f-7KjjFeL._SX317_BO1,204,203,200_.jpg")!
@@ -31,8 +36,8 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    segmentedControl.addTarget(self, action: #selector(switchCacheType(sender:)), for: .valueChanged)
     sizeSegementedControl.addTarget(self, action: #selector(switchCacheSize(sender:)), for: .valueChanged)
+    cacheTypeControl.addTarget(self, action: #selector(switchCacheSize(sender:)), for: .valueChanged)
 
     print("Cache path: \(NSHomeDirectory())")
   }
@@ -60,7 +65,6 @@ class ViewController: UIViewController {
         loadImage(url: url, isCache: true) { [weak self] image in
           self?.imageView.image = image
           self?.imageCache[url.absoluteString] = image
-          
           let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
           self?.output("Time elapsed for \(#function): \(timeElapsed) s.")
         }
@@ -74,7 +78,7 @@ class ViewController: UIViewController {
   private func loadImage(url: URL, isCache: Bool, completion: @escaping (UIImage?) -> Void) {
     let startTime = CFAbsoluteTimeGetCurrent()
     let configuration = URLSessionConfiguration.default
-    configuration.requestCachePolicy = isCache ? .returnCacheDataElseLoad : .reloadIgnoringLocalAndRemoteCacheData
+    configuration.requestCachePolicy = isCache ? .returnCacheDataElseLoad : .reloadIgnoringLocalCacheData
     let session = URLSession(configuration: configuration)
 
     self.imageView.image = nil
@@ -110,23 +114,23 @@ class ViewController: UIViewController {
     }
   }
 
-  @objc private func switchCacheType(sender: UISegmentedControl) {
-    let cacheType = CacheType(rawValue: sender.selectedSegmentIndex)
-    sizeLabel.isHidden = cacheType == .URLSession ? false : true
-    sizeSegementedControl.isHidden = cacheType == .URLSession ? false : true
-  }
-
   @objc private func switchCacheSize(sender: UISegmentedControl) {
-    var diskCapacity: Int = 0
-    if sender.selectedSegmentIndex == 0 {
-      diskCapacity = 1 * 1024 * 1024
+    var capacity: Int = 0
+    if sizeSegementedControl.selectedSegmentIndex == 0 {
+      capacity = 1 * 1024 * 1024
     } else {
-      diskCapacity = 500 * 1024 * 1024
+      capacity = 500 * 1024 * 1024
     }
+
+    let cacheTypeIndex = cacheTypeControl.selectedSegmentIndex
+
     URLCache.shared = URLCache(
-      memoryCapacity: URLCache.shared.memoryCapacity,
-      diskCapacity: diskCapacity,
+      memoryCapacity: cacheTypeIndex == 1 ? 0 : capacity,
+      diskCapacity: cacheTypeIndex == 0 ? 0 : capacity,
       diskPath: nil)
+    URLCache.shared.removeAllCachedResponses()
+    print("URLCache.shared.memoryCapacity: \(URLCache.shared.memoryCapacity)")
+    print("URLCache.shared.diskCapacity: \(URLCache.shared.diskCapacity)")
   }
 
   private func output(_ text: String) {

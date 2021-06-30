@@ -7,5 +7,7 @@ target 'CacheDemo' do
 
   # Pods for CacheDemo
   pod 'Kingfisher'
+  pod 'Cache'
+  pod 'SwiftyMenu', '~> 0.6.5'
 
 end

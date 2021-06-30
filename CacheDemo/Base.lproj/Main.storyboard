@@ -16,10 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zsO-C7-BZQ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zsO-C7-BZQ">
                                 <rect key="frame" x="87" y="224" width="240" height="448"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQN-3Z-zze">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQN-3Z-zze">
                                 <rect key="frame" x="111" y="705" width="192" height="30"/>
                                 <color key="backgroundColor" red="0.80784313730000001" green="0.4810000062" blue="0.28700000050000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Load small image">
@@ -29,7 +29,7 @@
                                     <action selector="downloadImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iBa-GF-lO9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAq-Wp-Yul">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAq-Wp-Yul">
                                 <rect key="frame" x="111" y="763" width="192" height="30"/>
                                 <color key="backgroundColor" red="0.80784313730000001" green="0.4810000062" blue="0.28700000050000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Load big image">
@@ -49,24 +49,44 @@
                                 </segments>
                             </segmentedControl>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time elapsed for" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQq-6P-y2a">
-                                <rect key="frame" x="41.5" y="177.5" width="331" height="20.5"/>
+                                <rect key="frame" x="41.5" y="185" width="331" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="I8a-k2-CAG">
-                                <rect key="frame" x="139.5" y="99" width="135" height="32"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="I8a-k2-CAG">
+                                <rect key="frame" x="237.5" y="99" width="135" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="6Oq-Jc-S9s"/>
+                                </constraints>
                                 <segments>
                                     <segment title="1 MB"/>
                                     <segment title="500 MB"/>
                                 </segments>
                             </segmentedControl>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cache size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8d-yl-GNd">
-                                <rect key="frame" x="40.5" y="104" width="83" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Glocal URLcache size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8d-yl-GNd">
+                                <rect key="frame" x="41.5" y="104" width="164" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URLcache type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ppc-yP-hgr">
+                                <rect key="frame" x="41.5" y="143.5" width="116" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Hxv-WS-Cud">
+                                <rect key="frame" x="163.5" y="138" width="209" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="zI0-qH-ZLy"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Memory"/>
+                                    <segment title="Disk"/>
+                                    <segment title="Both"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -74,26 +94,31 @@
                             <constraint firstItem="zsO-C7-BZQ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.57971" id="0Pe-Yf-WaO"/>
                             <constraint firstItem="zsO-C7-BZQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0dH-me-rDD"/>
                             <constraint firstItem="dQq-6P-y2a" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="0kB-FZ-ieC"/>
+                            <constraint firstItem="Ppc-yP-hgr" firstAttribute="leading" secondItem="v8d-yl-GNd" secondAttribute="leading" id="3Wf-SK-Zny"/>
                             <constraint firstItem="uM6-oi-izn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="4B9-vr-v7I"/>
                             <constraint firstItem="mAq-Wp-Yul" firstAttribute="top" secondItem="gQN-3Z-zze" secondAttribute="bottom" constant="28" id="4r4-Cx-5h1"/>
                             <constraint firstItem="gQN-3Z-zze" firstAttribute="width" secondItem="zsO-C7-BZQ" secondAttribute="width" multiplier="0.8" id="7Ib-7b-9uq"/>
                             <constraint firstItem="gQN-3Z-zze" firstAttribute="top" secondItem="zsO-C7-BZQ" secondAttribute="bottom" constant="33" id="Clj-82-eQe"/>
                             <constraint firstItem="mAq-Wp-Yul" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Djk-Fx-gfe"/>
                             <constraint firstItem="uM6-oi-izn" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="HuR-pp-zWd"/>
+                            <constraint firstItem="dQq-6P-y2a" firstAttribute="top" secondItem="Hxv-WS-Cud" secondAttribute="bottom" constant="16" id="LFa-KK-yAe"/>
                             <constraint firstItem="gQN-3Z-zze" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="M7D-UG-X79"/>
-                            <constraint firstItem="I8a-k2-CAG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NvU-wf-Bcg"/>
+                            <constraint firstItem="Ppc-yP-hgr" firstAttribute="centerY" secondItem="Hxv-WS-Cud" secondAttribute="centerY" id="WfM-I6-BtM"/>
                             <constraint firstItem="I8a-k2-CAG" firstAttribute="top" secondItem="uM6-oi-izn" secondAttribute="bottom" constant="8" symbolic="YES" id="Ws9-fY-deT"/>
+                            <constraint firstItem="Hxv-WS-Cud" firstAttribute="top" secondItem="I8a-k2-CAG" secondAttribute="bottom" constant="8" symbolic="YES" id="Yfa-1L-3Ws"/>
+                            <constraint firstItem="v8d-yl-GNd" firstAttribute="leading" secondItem="uM6-oi-izn" secondAttribute="leading" id="aCk-9F-ZvA"/>
                             <constraint firstItem="zsO-C7-BZQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="atF-fX-lg5"/>
                             <constraint firstItem="mAq-Wp-Yul" firstAttribute="width" secondItem="gQN-3Z-zze" secondAttribute="width" id="bBt-eJ-a9U"/>
-                            <constraint firstItem="zsO-C7-BZQ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="bbb-TC-pOk"/>
-                            <constraint firstItem="I8a-k2-CAG" firstAttribute="leading" secondItem="v8d-yl-GNd" secondAttribute="trailing" constant="16" id="gl2-Mx-1GT"/>
                             <constraint firstItem="uM6-oi-izn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iUY-ti-CZ1"/>
-                            <constraint firstItem="zsO-C7-BZQ" firstAttribute="top" secondItem="dQq-6P-y2a" secondAttribute="bottom" constant="26" id="nxG-71-sSv"/>
+                            <constraint firstItem="zsO-C7-BZQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dQq-6P-y2a" secondAttribute="bottom" constant="16" id="nxG-71-sSv"/>
                             <constraint firstItem="dQq-6P-y2a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="v5w-Mi-c2Z"/>
                             <constraint firstItem="v8d-yl-GNd" firstAttribute="centerY" secondItem="I8a-k2-CAG" secondAttribute="centerY" id="vfZ-l3-Y1n"/>
+                            <constraint firstItem="I8a-k2-CAG" firstAttribute="trailing" secondItem="uM6-oi-izn" secondAttribute="trailing" id="xOk-29-RWV"/>
+                            <constraint firstItem="Hxv-WS-Cud" firstAttribute="trailing" secondItem="uM6-oi-izn" secondAttribute="trailing" id="zTA-mr-o7w"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cacheTypeControl" destination="Hxv-WS-Cud" id="0Xb-cd-Wfm"/>
                         <outlet property="imageView" destination="zsO-C7-BZQ" id="LLM-We-T7l"/>
                         <outlet property="resultLabel" destination="dQq-6P-y2a" id="btd-0r-EFA"/>
                         <outlet property="segmentedControl" destination="uM6-oi-izn" id="lOx-pr-Pk4"/>
