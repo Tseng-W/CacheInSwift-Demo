@@ -13,6 +13,8 @@ final public class Cache<Key: Hashable, Value> {
   private let entryLifetime: TimeInterval
   private let keyTracker = KeyTracker() // 3
 
+  weak var delegate: NSCacheDelegate?
+
   init(dateProvider: @escaping () -> Date = Date.init, // 2 + Dependency Injection
        entryLifetime: TimeInterval = 12 * 60 * 60,
        maximumEbtryCount: Int = 50) {
@@ -20,6 +22,7 @@ final public class Cache<Key: Hashable, Value> {
     self.entryLifetime = entryLifetime
     wrapped.countLimit = maximumEbtryCount // 3
     wrapped.delegate = keyTracker // 3
+    wrapped.delegate = delegate
   }
 
   func insert(_ value: Value, forKey key: Key) {
@@ -105,4 +108,3 @@ private extension Cache {
     }
   }
 }
-

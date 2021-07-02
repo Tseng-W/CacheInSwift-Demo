@@ -32,6 +32,7 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    imageCache.delegate = self
 
     print("NShome path: \(NSHomeDirectory())")
     print("Default URLcache memory capacity: \(URLCache.shared.memoryCapacity.byteToMb()) MB")
@@ -172,5 +173,11 @@ class ViewController: UIViewController {
     resultLabel.isHidden = false
     resultLabel.text = text
     print(text)
+  }
+}
+
+extension ViewController: NSCacheDelegate {
+  func cache(_ cache: NSCache<AnyObject, AnyObject>, willEvictObject obj: Any) {
+    print(obj)
   }
 }
